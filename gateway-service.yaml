@@ -12,32 +12,31 @@ spring:
   cloud:
     gateway:
       server:
-        webflux:
-          routes:
+        routes:
 
-#            - id: identity-service
-#              uri: lb://IDENTITY-SERVICE
-#              predicates:
-#                - Path=/auth/**
+          #            - id: identity-service
+          #              uri: lb://IDENTITY-SERVICE
+          #              predicates:
+          #                - Path=/auth/**
 
-            - id: security-service
-              uri: lb://SECURITY-SERVICE
-              predicates:
-                - Path=/api/v1/security/**
-#              filters:
-#                - name: JwtAuthFilter
+          - id: security-service
+            uri: lb://SECURITY-SERVICE
+            predicates:
+              - Path=/api/v1/security/**
+          #              filters:
+          #                - name: JwtAuthFilter
 
-            - id: accounting-service
-              uri: lb://ACCOUNTING-SERVICE
-              predicates:
-                - Path=/api/v1/accounting/**
-#              filters:
-#                - name: JwtAuthFilter
+          - id: accounting-service
+            uri: lb://ACCOUNTING-SERVICE
+            predicates:
+              - Path=/api/v1/accounting/**
+          #              filters:
+          #                - name: JwtAuthFilter
 
-            - id: onboarding-service
-              uri: lb://ONBOARDING-SERVICE
-              predicates:
-                - Path=/api/v1/onboarding/**
+          - id: onboarding-service
+            uri: lb://ONBOARDING-SERVICE
+            predicates:
+              - Path=/api/v1/onboarding/**
 #              filters:
 #                - name: JwtAuthFilter
 
@@ -50,3 +49,6 @@ logging:
   level:
     by.javaguru.jdmk10.gatewayservice.filter.JwtAuthFilter: DEBUG
     org.springframework.cloud.gateway: DEBUG
+    org.springframework.cloud.loadbalancer: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
