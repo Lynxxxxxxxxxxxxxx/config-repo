@@ -56,7 +56,6 @@ resilience4j:
           - java.net.ConnectException
           - java.io.IOException
           - feign.FeignException
-          - org.springframework.cloud.client.ServiceInstanceNotFoundException
     instances:
       accountingService:
         base-config: default
@@ -75,7 +74,6 @@ resilience4j:
           - java.net.ConnectException
           - java.io.IOException
           - feign.FeignException
-          - org.springframework.cloud.client.ServiceInstanceNotFoundException
           - org.springframework.web.client.ResourceAccessException
     instances:
       accountingService:
