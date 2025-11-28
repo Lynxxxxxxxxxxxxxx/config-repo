@@ -11,20 +11,19 @@ spring:
           issuer-uri: http://localhost:8090/realms/mr.ebignail
   cloud:
     gateway:
-      server:
-        routes:
-          - id: security-service
-            uri: lb://SECURITY-SERVICE
-            predicates:
-              - Path=/api/v1/security/**
-          - id: accounting-service
-            uri: lb://ACCOUNTING-SERVICE
-            predicates:
-              - Path=/api/v1/accounting/**
-          - id: onboarding-service
-            uri: lb://ONBOARDING-SERVICE
-            predicates:
-              - Path=/api/v1/onboarding/**
+      routes:
+        - id: security-service
+          uri: lb://SECURITY-SERVICE
+          predicates:
+            - Path=/api/v1/security/**
+        - id: accounting-service
+          uri: lb://ACCOUNTING-SERVICE
+          predicates:
+            - Path=/api/v1/accounting/**
+        - id: onboarding-service
+          uri: lb://ONBOARDING-SERVICE
+          predicates:
+            - Path=/api/v1/onboarding/**
 
 eureka:
   client:
